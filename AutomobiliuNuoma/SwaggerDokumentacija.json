@@ -1,0 +1,116 @@
+openapi: 3.0.0
+info:
+  title: Automobilių Nuomos API
+  version: 1.0.0
+paths:
+  /api/automobiliai:
+    post:
+      summary: Pridėti naują automobilį
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                Pavadinimas:
+                  type: string
+                Metai:
+                  type: integer
+                NuomosKaina:
+                  type: number
+                  format: float
+              required:
+                - Pavadinimas
+                - Metai
+                - NuomosKaina
+      responses:
+        '201':
+          description: Sukurtas sėkmingai
+  /api/klientai:
+    post:
+      summary: Pridėti naują klientą
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                Vardas:
+                  type: string
+                Pavarde:
+                  type: string
+                ElPastas:
+                  type: string
+                  format: email
+                Telefonas:
+                  type: string
+              required:
+                - Vardas
+                - Pavarde
+                - ElPastas
+                - Telefonas
+      responses:
+        '201':
+          description: Sukurtas sėkmingai
+  /api/darbuotojai:
+    post:
+      summary: Pridėti naują darbuotoją
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                Vardas:
+                  type: string
+                Pavarde:
+                  type: string
+                Pareigos:
+                  type: string
+              required:
+                - Vardas
+                - Pavarde
+                - Pareigos
+      responses:
+        '201':
+          description: Sukurtas sėkmingai
+  /api/nuomos-uzsakymai:
+    post:
+      summary: Pridėti naują nuomos užsakymą
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                KlientasId:
+                  type: integer
+                DarbuotojasId:
+                  type: integer
+                AutomobilisId:
+                  type: integer
+                PradziosData:
+                  type: string
+                  format: date-time
+                PabaigosData:
+                  type: string
+                  format: date-time
+                Kaina:
+                  type: number
+                  format: float
+              required:
+                - KlientasId
+                - DarbuotojasId
+                - AutomobilisId
+                - PradziosData
+                - PabaigosData
+                - Kaina
+      responses:
+        '201':
+          description: Sukurtas sėkmingai{
+
+}
